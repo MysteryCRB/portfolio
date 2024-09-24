@@ -44,11 +44,10 @@ I am an Informatics student passionate about IT, particularly in **Cyber Securit
 
 ---
 
-## 🏆 Achievements
+## 🏆 Achievements & Certificates
 
-- 75% Scholarship at President University
-- UI/UX Design Competition (2022)
-- Matsuri Guard Committee (2022)
+- [Organizational & Campus](https://drive.google.com/drive/u/0/folders/1wbqBVS41PAANdIjKn4GPteMib-IZVMbd)
+- [Skills](https://drive.google.com/drive/u/0/folders/1VYDwGrssZVvWHtI30pC3w2UzCJB6mgBY)
 
 ---
 
