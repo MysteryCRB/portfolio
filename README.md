@@ -52,9 +52,17 @@
 
 ## 💻 Projects
 
-### SmartPath | 2024  
-**Data Analyst Project**  
-- Analyzed data trends to provide actionable insights for business decision-making.
+### Security Compliance & Audit | 2024  
+**Cybersecurity Framework Audit for Jababeka**  
+- Audited Jababeka's cybersecurity framework based on the 5 elements of the framework, ensuring compliance and providing recommendations for improving their security posture.
+
+### Ethical Hacking | 2024  
+**Pen-testing President University Website**  
+- Conducted a thorough penetration test on the official President University website to identify security vulnerabilities and improve the site's defenses.
+
+### Zafado Store | 2023  
+**Online Electronics Store Development**  
+- Created **Zafado Store**, an online platform selling electronics, including phones, PCs, and laptops.
 
 ---
 
