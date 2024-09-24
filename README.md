@@ -9,6 +9,12 @@
 
 ---
 
+## About Me
+
+I am an Informatics student passionate about IT, particularly in **Cyber Security**, with a strong focus on **Ethical Hacking**. I enjoy combining my technical skills with effective communication, often presenting ideas and projects. Additionally, I have a keen interest in business and how technology drives innovation, shapes secure digital environments and supports business growth.
+
+---
+
 ## 💼 Work Experience
 
 ### Zela Floix | Cikarang, Indonesia (May 2024 - Present)  
