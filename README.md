@@ -23,8 +23,6 @@
 
 **Universitas Presiden** | Cikarang, Indonesia (Aug 2022 - Expected Aug 2025)  
 - **Undergraduate in Information Technology**  
-- **GPA:** 3.36/4.00  
-- Awarded 75% merit-based scholarship.  
 - Ranked in the top 80 of 1200+ students in a campus-wide English test.  
 
 ---
@@ -34,7 +32,7 @@
 **Technical Skills:**
 - Programming Languages: **C++, Java, Python, MySQL**
 - Web Development: **HTML, CSS, JavaScript**
-- Cyber Security: **Kali Linux, Metasploit, Cisco**
+- Cyber Security: **Kali Linux, Metasploit, Cisco, NMAP**
 - Other Tools: **Microsoft Office, Canva, Blender, UPBGE, Rational Rose, VS Code, Android Studio**
 
 **Soft Skills:**
