@@ -14,7 +14,6 @@
 ### Zela Floix | Cikarang, Indonesia (May 2024 - Present)  
 **Founder**  
 - Founded a digital dropshipping business specializing in e-books for exercise routines.
-- Achieved 2.7K organic views on TikTok through content strategies.
 - Built and maintained the business website using **Wix**, ensuring a seamless user experience.
 
 ---
@@ -57,9 +56,25 @@
 **Pen-testing President University Website**  
 - Conducted a thorough penetration test on the official President University website to identify security vulnerabilities and improve the site's defenses.
 
+### Cyber Security Final Project | 2024
+**Password Encryption & Decryption**  
+- Developed a Python-based project using the **cryptography** library for secure password encryption and decryption.
+
+### Password Checker | 2024
+**Password Strength Checker**  
+- Developed a simple website that checks the strength of user passwords based on complexity criteria (capital letters, numbers, symbols, etc.).
+
 ### Zafado Store | 2023  
 **Online Electronics Store Development**  
 - Created **Zafado Store**, an online platform selling electronics, including phones, PCs, and laptops.
+
+### Laundry Management System | 2023
+**Order Tracking Application**  
+- Created a Java-based application for laundry businesses to manage orders, track clients, and calculate clothing weight.
+
+### Discord Bot | 2022
+**Server Management Bot**  
+- Developed a JavaScript bot to manage Discord server operations such as user roles and message filtering.
 
 ---
 
