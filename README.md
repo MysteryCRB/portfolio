@@ -21,9 +21,8 @@
 
 ## 🎓 Education
 
-**Universitas Presiden** | Cikarang, Indonesia (Aug 2022 - Expected Aug 2025)  
-- **Undergraduate in Information Technology**  
-- Ranked in the top 80 of 1200+ students in a campus-wide English test.  
+**President University** | Cikarang, Indonesia (Aug 2022 - Expected Aug 2025)  
+- **Undergraduate in Information Technology**
 
 ---
 
