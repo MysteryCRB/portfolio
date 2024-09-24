@@ -9,12 +9,6 @@
 
 ---
 
-## About Me
-
-I am an Informatics student with a passion for IT, particularly in **Cyber Security** and **Web Application Development**. I enjoy combining my technical skills with effective communication, often presenting ideas and projects. I also have a keen interest in online business and how technology drives innovation in digital marketplaces.
-
----
-
 ## 💼 Work Experience
 
 ### Zela Floix | Cikarang, Indonesia (May 2024 - Present)  
