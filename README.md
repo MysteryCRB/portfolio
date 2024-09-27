@@ -1,4 +1,4 @@
-# PORTFOLIO
+# ALMENDO GABRIEL TETELEPTA
 
 ### 📧 Contact Me
 - **Phone:** +62 852 8147 8917
