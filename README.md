@@ -19,10 +19,3 @@ This portfolio project was built using modern web development tools and technolo
 - **Vite:** For fast development and build performance.
 - **StackBlitz:** As an online development environment to prototype and deploy the project quickly.
 
-## Getting Started
-
-### Prerequisites
-
-Ensure you have the following installed:
-- Node.js (v14 or higher)
-- npm or yarn

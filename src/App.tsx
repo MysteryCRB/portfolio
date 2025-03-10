@@ -97,10 +97,10 @@ const commands = [
   'git commit -m "Update portfolio"',
   'npm start',
   'docker run -it ubuntu bash',
+  'Almendo Gabriel Tetelepta'
 ];
 
 const App: React.FC = () => {
-  const starRef = useRef<HTMLDivElement>(null);
   const projectsContainerRef = useRef<HTMLDivElement>(null);
   const typingRef = useRef<HTMLSpanElement>(null);
   const [activeSection, setActiveSection] = useState('hero');
@@ -108,22 +108,6 @@ const App: React.FC = () => {
   const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
 
   useEffect(() => {
-    // Falling Stars
-    const createStar = () => {
-      if (!starRef.current) return;
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.left = `${Math.random() * 100}vw`;
-      const r = Math.floor(Math.random() * 256);
-      const g = Math.floor(Math.random() * 256);
-      const b = Math.floor(Math.random() * 256);
-      star.style.background = `rgb(${r}, ${g}, ${b})`;
-      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-      starRef.current.appendChild(star);
-      setTimeout(() => star.remove(), 5000);
-    };
-    const starInterval = setInterval(createStar, 300);
-
     // Scroll Reveal and Active Section Tracking
     const handleScrollAnimation = () => {
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
@@ -168,7 +152,6 @@ const App: React.FC = () => {
     }
 
     return () => {
-      clearInterval(starInterval);
       window.removeEventListener('scroll', handleScrollAnimation);
     };
   }, [currentCommandIndex]);
@@ -187,9 +170,6 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-white text-[#212121] overflow-hidden">
-      {/* Stars Background */}
-      <div ref={starRef} className="fixed inset-0 pointer-events-none" />
-
       {/* Floating Navigation */}
       <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white bg-opacity-80 backdrop-blur-md px-4 py-4 rounded-full shadow-lg md:px-8">
         <div className="flex items-center justify-between">
@@ -225,7 +205,7 @@ const App: React.FC = () => {
           <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-[#ECEFF1] hover:scale-105 transition-transform duration-300">
             <img src={profilePic} alt="Profile" className="w-full h-full object-cover" />
           </div>
-          <h1 className="text-7xl font-bold hover:text-[#78909C] transition-colors duration-300">ALMENDO GABRIEL TETELEPTA</h1>
+          <h1 className="text-5xl font-bold hover:text-[#78909C] transition-colors duration-300">ALMENDO GABRIEL TETELEPTA</h1>
           <p className="text-2xl hover:text-[#78909C] transition-colors duration-300">
             Information Technology | Cyber Security Enthusiast
           </p>
@@ -501,19 +481,6 @@ const App: React.FC = () => {
 
       {/* Inline CSS */}
       <style jsx>{`
-        /* Falling Stars */
-        .star {
-          position: absolute;
-          width: 2px;
-          height: 2px;
-          border-radius: 50%;
-          animation: fall linear forwards;
-        }
-        @keyframes fall {
-          0% { transform: translateY(0) scale(0); opacity: 0; }
-          10% { transform: translateY(10px) scale(1); opacity: 1; }
-          100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-        }
         /* Scroll Reveal */
         .reveal-on-scroll {
           opacity: 0;
