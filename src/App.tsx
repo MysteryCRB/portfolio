@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Github, Linkedin, FileText, Mail } from 'lucide-react';
 
+// Import the local image file
+import profilePic from './wow.jpg';
+
 const App = () => {
   const starRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +60,7 @@ const App = () => {
         <div className="text-center space-y-6 animate-fade-in">
           <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-8">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces"
+              src={profilePic} // Updated to use the imported image
               alt="Profile"
               className="w-full h-full object-cover"
             />
