@@ -1,4 +1,4 @@
-# ALMENDO GABRIEL TETELEPTA Portfolio
+# PERSONAL PORTFOLIO
 
 This is my personal portfolio website—a showcase of my skills, projects, work experience, and organizational activities in Information Technology and Cyber Security. The project is designed to provide an engaging, interactive, and visually appealing online resume that reflects my passion and expertise in the field.
 
