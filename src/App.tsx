@@ -1,41 +1,44 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, FileText, Mail, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
-
-// Import the local image file
+import { Github, Linkedin, FileText, Mail, ChevronLeft, ChevronRight, ExternalLink, Menu } from 'lucide-react';
 import profilePic from './wow.jpg';
 
-// Updated technical skills data with new icon URLs
+// Technical Skills Data
 const technicalSkills = [
-  { name: 'Kaspersky Security Center', icon: 'https://cdn-icons-png.flaticon.com/512/3732/3732229.png' }, // New antivirus icon
+  { name: 'Kaspersky Security Center', icon: 'https://cdn-icons-png.flaticon.com/512/3732/3732229.png' },
   { name: 'SIEM', icon: 'https://cdn-icons-png.flaticon.com/512/2910/2910896.png' },
-  { name: 'Threat Intelligence', icon: 'https://cdn-icons-png.flaticon.com/512/2716/2716612.png' }, // New threat intelligence icon
+  { name: 'Threat Intelligence', icon: 'https://cdn-icons-png.flaticon.com/512/2716/2716612.png' },
   { name: 'Endpoint Protection', icon: 'https://cdn-icons-png.flaticon.com/512/2056/2056052.png' },
-  { name: 'Nmap', icon: 'https://cdn-icons-png.flaticon.com/512/9458/9458496.png' }, // New eye icon for Nmap
-  { name: 'Wireshark', icon: 'https://cdn-icons-png.flaticon.com/512/2943/2943981.png' }, 
+  { name: 'Nmap', icon: 'https://cdn-icons-png.flaticon.com/512/9458/9458496.png' },
+  { name: 'Wireshark', icon: 'https://cdn-icons-png.flaticon.com/512/2943/2943981.png' },
   { name: 'Kali Linux', icon: 'https://cdn-icons-png.flaticon.com/512/226/226772.png' },
   { name: 'Metasploit', icon: 'https://cdn-icons-png.flaticon.com/512/3067/3067260.png' },
   { name: 'Python', icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968350.png' },
   { name: 'Java', icon: 'https://cdn-icons-png.flaticon.com/512/226/226777.png' },
 ];
 
+// Soft Skills Data with Icons
+const softSkills = [
+  { name: 'Problem Solving', icon: 'https://cdn-icons-png.flaticon.com/512/2920/2920244.png' },
+  { name: 'Team Collaboration', icon: 'https://cdn-icons-png.flaticon.com/512/921/921490.png' },
+  { name: 'Critical Thinking', icon: 'https://cdn-icons-png.flaticon.com/512/1365/1365857.png' },
+  { name: 'Communication', icon: 'https://cdn-icons-png.flaticon.com/512/124/124033.png' },
+  { name: 'Time Management', icon: 'https://cdn-icons-png.flaticon.com/512/2784/2784459.png' },
+  { name: 'Adaptability', icon: 'https://cdn-icons-png.flaticon.com/512/2504/2504947.png' },
+];
+
+// Projects Data
 const projects = [
   {
-    title: 'COMPSHERE UI/UX Design',
-    description: 'Led design and presentation of user-friendly interface solutions.',
-    icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png',
-    year: '2023',
-  },
-  {
-    title: 'Network Security Analysis',
-    description: 'Conducted vulnerability assessments using Kali Linux tools and created mitigation strategies.',
+    title: 'Integrated Malware Detection & Analysis System for SOC L1 Analysts',
+    description: 'Developed an automated SOAR platform for threat intelligence reporting and IOC detection.',
     icon: 'https://cdn-icons-png.flaticon.com/512/6134/6134591.png',
-    year: '2023',
+    year: 'On-Progress',
   },
   {
     title: 'Personal Portfolio Website',
     description: 'Designed and developed a responsive personal portfolio using React and modern web technologies.',
     icon: 'https://cdn-icons-png.flaticon.com/512/2721/2721279.png',
-    year: '2023',
+    year: '2025',
   },
   {
     title: 'Cybersecurity Framework Audit for Jababeka',
@@ -70,8 +73,14 @@ const projects = [
   {
     title: 'Laundry Management System',
     description: 'Developed a Java-based application for laundry businesses to manage orders and track clients.',
-    icon: 'https://cdn-icons-png.flaticon.com/512/3929/3929105.png', // New laundry management icon
+    icon: 'https://cdn-icons-png.flaticon.com/512/3929/3929105.png',
     year: '2023',
+  },
+  {
+    title: 'COMPSHERE UI/UX Design',
+    description: 'Led design and presentation of user-friendly interface solutions.',
+    icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png',
+    year: '2022',
   },
   {
     title: 'Discord Bot',
@@ -81,13 +90,25 @@ const projects = [
   },
 ];
 
+// Array of commands for the typing effect
+const commands = [
+  'sudo nmap -sS -sV -p- -T4 192.168.1.1',
+  'python -m http.server 8000',
+  'git commit -m "Update portfolio"',
+  'npm start',
+  'docker run -it ubuntu bash',
+];
+
 const App: React.FC = () => {
   const starRef = useRef<HTMLDivElement>(null);
   const projectsContainerRef = useRef<HTMLDivElement>(null);
+  const typingRef = useRef<HTMLSpanElement>(null);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
 
   useEffect(() => {
-    // Falling Stars with random RGB colors
+    // Falling Stars
     const createStar = () => {
       if (!starRef.current) return;
       const star = document.createElement('div');
@@ -101,9 +122,9 @@ const App: React.FC = () => {
       starRef.current.appendChild(star);
       setTimeout(() => star.remove(), 5000);
     };
-    const interval = setInterval(createStar, 300);
+    const starInterval = setInterval(createStar, 300);
 
-    // Scroll reveal and active section tracking
+    // Scroll Reveal and Active Section Tracking
     const handleScrollAnimation = () => {
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       const windowHeight = window.innerHeight;
@@ -126,11 +147,31 @@ const App: React.FC = () => {
 
     handleScrollAnimation();
     window.addEventListener('scroll', handleScrollAnimation);
+
+    // Typing Effect for Multiple Commands
+    const typingElement = typingRef.current;
+    if (typingElement) {
+      const typeCommand = () => {
+        const command = commands[currentCommandIndex];
+        const charCount = command.length;
+        const duration = charCount * 0.3; // 300ms per character for 40 WPM
+        typingElement.textContent = command;
+        typingElement.style.width = '0ch';
+        typingElement.style.animation = `typing ${duration}s steps(${charCount}, end) forwards, blink 0.75s step-end infinite`;
+        setTimeout(() => {
+          setCurrentCommandIndex((prev) => (prev + 1) % commands.length);
+        }, (duration + 1) * 1000); // Wait for animation to finish plus 1-second delay
+      };
+      typeCommand();
+      const commandInterval = setInterval(typeCommand, 10000); // Adjust interval if needed
+      return () => clearInterval(commandInterval);
+    }
+
     return () => {
-      clearInterval(interval);
+      clearInterval(starInterval);
       window.removeEventListener('scroll', handleScrollAnimation);
     };
-  }, []);
+  }, [currentCommandIndex]);
 
   const scrollProjects = (direction: 'left' | 'right') => {
     if (!projectsContainerRef.current) return;
@@ -141,6 +182,7 @@ const App: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+    setIsNavOpen(false); // Close nav after selection
   };
 
   return (
@@ -149,27 +191,32 @@ const App: React.FC = () => {
       <div ref={starRef} className="fixed inset-0 pointer-events-none" />
 
       {/* Floating Navigation */}
-      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white bg-opacity-80 backdrop-blur-md px-8 py-4 rounded-full shadow-lg">
-        <ul className="flex space-x-6">
-          <li>
-            <button onClick={() => scrollToSection('hero')} className={`nav-link ${activeSection === 'hero' ? 'font-bold' : ''}`}>Home</button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('about')} className={`nav-link ${activeSection === 'about' ? 'font-bold' : ''}`}>About</button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('experience')} className={`nav-link ${activeSection === 'experience' ? 'font-bold' : ''}`}>Experience</button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('organizational')} className={`nav-link ${activeSection === 'organizational' ? 'font-bold' : ''}`}>Organizations</button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('projects')} className={`nav-link ${activeSection === 'projects' ? 'font-bold' : ''}`}>Projects</button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('contact')} className={`nav-link ${activeSection === 'contact' ? 'font-bold' : ''}`}>Contact</button>
-          </li>
-        </ul>
+      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white bg-opacity-80 backdrop-blur-md px-4 py-4 rounded-full shadow-lg md:px-8">
+        <div className="flex items-center justify-between">
+          <button onClick={() => setIsNavOpen(!isNavOpen)} className="md:hidden">
+            <Menu size={24} />
+          </button>
+          <ul className={`flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 ${isNavOpen ? 'block' : 'hidden'} md:flex`}>
+            <li>
+              <button onClick={() => scrollToSection('hero')} className={`nav-link ${activeSection === 'hero' ? 'font-bold' : ''}`}>Home</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('about')} className={`nav-link ${activeSection === 'about' ? 'font-bold' : ''}`}>About</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('experience')} className={`nav-link ${activeSection === 'experience' ? 'font-bold' : ''}`}>Experience</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('organizational')} className={`nav-link ${activeSection === 'organizational' ? 'font-bold' : ''}`}>Organizations</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('projects')} className={`nav-link ${activeSection === 'projects' ? 'font-bold' : ''}`}>Projects</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('contact')} className={`nav-link ${activeSection === 'contact' ? 'font-bold' : ''}`}>Contact</button>
+            </li>
+          </ul>
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -203,25 +250,19 @@ const App: React.FC = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen flex items-center py-20">
+      <section id="about" className="py-16">
         <div className="container mx-auto px-4">
-          <div className="title-box reveal-on-scroll mb-12" style={{ backgroundColor: 'rgba(120,144,156,0.2)', border: '2px solid #78909C', color: '#212121' }}>
-            <h2 className="text-4xl font-bold">About Me</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 reveal-on-scroll">
-            <div className="space-y-8">
+          <h2 className="text-4xl font-bold mb-12 reveal-on-scroll border-b-2 border-[#78909C] pb-2">About Me</h2>
+          <div className="grid md:grid-cols-2 gap-8 reveal-on-scroll">
+            <div className="space-y-6">
               <p className="text-lg leading-relaxed">
                 Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection, and security monitoring. Currently contributing to the security posture of PT. Media Nusantara Citra Tbk (MNC Media) through a practical internship. Eager to further develop technical skills, particularly in penetration testing.
               </p>
-              <div className="space-y-6">
-                <div className="title-box" style={{ backgroundColor: 'rgba(120,144,156,0.2)', border: '2px solid #78909C', color: '#212121' }}>
-                  <h3 className="text-2xl font-semibold">Technical Skills</h3>
-                </div>
-                {/* Connecting line with shining effect */}
-                <div className="tech-connector mb-4"></div>
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold">Technical Skills</h3>
                 <div className="grid grid-cols-5 gap-4">
                   {technicalSkills.map((skill, index) => (
-                    <div key={index} className="flex flex-col items-center space-y-2">
+                    <div key={index} className="flex flex-col items-center space-y-2 hover-effect">
                       <img src={skill.icon} alt={skill.name} className="w-10 h-10 object-contain" />
                       <p className="text-xs text-center">{skill.name}</p>
                     </div>
@@ -229,27 +270,23 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="title-box" style={{ backgroundColor: 'rgba(120,144,156,0.2)', border: '2px solid #78909C', color: '#212121' }}>
-                  <h3 className="text-2xl font-semibold">Soft Skills</h3>
+                <h3 className="text-2xl font-semibold">Soft Skills</h3>
+                <div className="grid grid-cols-3 gap-4">
+                  {softSkills.map((skill, index) => (
+                    <div key={index} className="flex flex-col items-center space-y-2 hover-effect">
+                      <img src={skill.icon} alt={skill.name} className="w-10 h-10 object-contain" />
+                      <p className="text-xs text-center">{skill.name}</p>
+                    </div>
+                  ))}
                 </div>
-                <ul className="grid grid-cols-2 gap-4">
-                  <li className="skill-tag">Problem Solving</li>
-                  <li className="skill-tag">Team Collaboration</li>
-                  <li className="skill-tag">Critical Thinking</li>
-                  <li className="skill-tag">Communication</li>
-                  <li className="skill-tag">Time Management</li>
-                  <li className="skill-tag">Adaptability</li>
-                </ul>
               </div>
             </div>
             <div className="space-y-6">
-              <div className="title-box" style={{ backgroundColor: '#ECEFF1', border: '2px solid #ECEFF1', color: '#212121' }}>
-                <h3 className="text-2xl font-semibold">Education</h3>
-              </div>
-              <div className="company-card">
+              <h3 className="text-2xl font-semibold">Education</h3>
+              <div className="company-card hover-effect">
                 <h4 className="text-xl font-semibold">President University</h4>
                 <p className="text-[#424242]">
-                  Bachelor of Information Technology (Expected December 2025)
+                  Bachelor of Information Technology (Aug 2022 - Dec 2025)
                 </p>
                 <ul className="mt-6 space-y-3 text-[#424242]">
                   <li className="flex items-center gap-2"><span>•</span> GPA: 3.49</li>
@@ -258,20 +295,21 @@ const App: React.FC = () => {
                   <li className="flex items-center gap-2"><span>•</span> Active participant in 10+ university events</li>
                 </ul>
               </div>
+              <div className="command-line text-sm font-mono text-[#424242] mt-4">
+                <span ref={typingRef} className="typing"></span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Work Experience Section */}
-      <section id="experience" className="min-h-screen py-20">
+      <section id="experience" className="py-16">
         <div className="container mx-auto px-4">
-          <div className="title-box reveal-on-scroll mb-12" style={{ backgroundColor: 'rgba(66,66,66,0.1)', border: '2px solid #424242', color: '#212121' }}>
-            <h2 className="text-4xl font-bold">Work Experience</h2>
-          </div>
+          <h2 className="text-4xl font-bold mb-12 reveal-on-scroll border-b-2 border-[#424242] pb-2">Work Experience</h2>
           <div className="space-y-12">
             <div className="timeline-item reveal-on-scroll timeline-left">
-              <div className="experience-card relative">
+              <div className="experience-card relative hover-effect">
                 <h3 className="text-2xl font-semibold mb-2">IT Security Intern</h3>
                 <p className="mb-4">
                   PT. Media Nusantara Citra Tbk (MNC Media) • Oct 2024 - Apr 2025
@@ -309,13 +347,11 @@ const App: React.FC = () => {
       </section>
 
       {/* Organizational Experience Section */}
-      <section id="organizational" className="min-h-screen py-20">
+      <section id="organizational" className="py-16">
         <div className="container mx-auto px-4">
-          <div className="title-box reveal-on-scroll mb-12" style={{ backgroundColor: '#ECEFF1', border: '2px solid #ECEFF1', color: '#212121' }}>
-            <h2 className="text-4xl font-bold">Organizational Experience</h2>
-          </div>
+          <h2 className="text-4xl font-bold mb-12 reveal-on-scroll border-b-2 border-[#ECEFF1] pb-2">Organizational Experience</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="org-card reveal-on-scroll">
+            <div className="org-card reveal-on-scroll hover-effect">
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Resident Assistant</h3>
                 <p className="mb-2">
@@ -343,7 +379,7 @@ const App: React.FC = () => {
                 </ul>
               </div>
             </div>
-            <div className="org-card reveal-on-scroll">
+            <div className="org-card reveal-on-scroll hover-effect">
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Guard - PUNICO Matsuri</h3>
                 <p className="mb-2">
@@ -371,7 +407,7 @@ const App: React.FC = () => {
                 </ul>
               </div>
             </div>
-            <div className="org-card reveal-on-scroll">
+            <div className="org-card reveal-on-scroll hover-effect">
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Usher - COOL Marticulation</h3>
                 <p className="mb-2">
@@ -403,15 +439,13 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Projects & Activities Section (Horizontally scrollable) */}
-      <section id="projects" className="min-h-screen py-20">
+      {/* Projects & Activities Section */}
+      <section id="projects" className="py-16">
         <div className="container mx-auto px-4">
-          <div className="title-box reveal-on-scroll mb-12" style={{ backgroundColor: 'rgba(120,144,156,0.3)', border: '2px solid #78909C', color: '#212121' }}>
-            <h2 className="text-4xl font-bold">Projects & Activities</h2>
-          </div>
+          <h2 className="text-4xl font-bold mb-12 reveal-on-scroll border-b-2 border-[#78909C] pb-2">Projects & Activities</h2>
           <div className="flex space-x-4 overflow-x-auto pb-4" ref={projectsContainerRef}>
             {projects.map((project, index) => (
-              <div key={index} className="project-card reveal-on-scroll flex-shrink-0 w-80">
+              <div key={index} className="project-card reveal-on-scroll flex-shrink-0 w-80 hover-effect">
                 <div className="relative p-6">
                   <div className="absolute top-4 right-4 bg-[#424242] px-3 py-1 rounded-full text-white text-xs">
                     {project.year}
@@ -436,27 +470,25 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Decorative Command Line Typing Effect on the side of Contact */}
-      <section id="contact" className="min-h-screen py-20 relative">
+      {/* Contact Section */}
+      <section id="contact" className="py-16 relative">
         <div className="container mx-auto px-4">
-          <div className="title-box reveal-on-scroll mb-12" style={{ backgroundColor: 'rgba(66,66,66,0.1)', border: '2px solid #424242', color: '#212121' }}>
-            <h2 className="text-4xl font-bold">Contact</h2>
-          </div>
+          <h2 className="text-4xl font-bold mb-12 reveal-on-scroll border-b-2 border-[#424242] pb-2">Contact</h2>
           <div className="mx-auto max-w-xl">
             <div className="space-y-8 reveal-on-scroll">
               <h3 className="text-2xl font-semibold">Let's Connect</h3>
               <div className="flex flex-col gap-6">
-                <a href="https://github.com/MysteryCRB" target="_blank" rel="noopener noreferrer" className="social-link">
+                <a href="https://github.com/MysteryCRB" target="_blank" rel="noopener noreferrer" className="social-link hover-effect">
                   <Github size={24} />
                   <span>GitHub</span>
                   <ExternalLink size={16} className="ml-2 opacity-50" />
                 </a>
-                <a href="https://id.linkedin.com/in/almendo" target="_blank" rel="noopener noreferrer" className="social-link">
+                <a href="https://id.linkedin.com/in/almendo" target="_blank" rel="noopener noreferrer" className="social-link hover-effect">
                   <Linkedin size={24} />
                   <span>LinkedIn</span>
                   <ExternalLink size={16} className="ml-2 opacity-50" />
                 </a>
-                <a href="mailto:almendo.071105@gmail.com" className="social-link">
+                <a href="mailto:almendo.071105@gmail.com" className="social-link hover-effect">
                   <Mail size={24} />
                   <span>almendo.071105@gmail.com</span>
                 </a>
@@ -465,15 +497,9 @@ const App: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* Command line typing effect decoration */}
-        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 pr-4">
-          <div className="command-line text-sm font-mono text-[#424242]">
-            <span className="typing"> nmap -sS -sV -p- 192.168.1.1</span>
-          </div>
-        </div>
       </section>
 
-      {/* Inline CSS for animations and custom styles */}
+      {/* Inline CSS */}
       <style jsx>{`
         /* Falling Stars */
         .star {
@@ -484,18 +510,9 @@ const App: React.FC = () => {
           animation: fall linear forwards;
         }
         @keyframes fall {
-          0% {
-            transform: translateY(0) scale(0);
-            opacity: 0;
-          }
-          10% {
-            transform: translateY(10px) scale(1);
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(100vh) scale(0.5);
-            opacity: 0;
-          }
+          0% { transform: translateY(0) scale(0); opacity: 0; }
+          10% { transform: translateY(10px) scale(1); opacity: 1; }
+          100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
         }
         /* Scroll Reveal */
         .reveal-on-scroll {
@@ -540,17 +557,6 @@ const App: React.FC = () => {
           box-shadow: 0 10px 25px rgba(66, 66, 66, 0.3);
           background: rgba(66, 66, 66, 0.2);
         }
-        /* Skill Tags */
-        .skill-tag {
-          background: rgba(236, 239, 241, 0.5);
-          padding: 0.5rem 1rem;
-          border-radius: 4px;
-          transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .skill-tag:hover {
-          background: rgba(236, 239, 241, 0.8);
-          transform: translateY(-2px);
-        }
         /* Social Links */
         .social-link {
           display: flex;
@@ -584,47 +590,34 @@ const App: React.FC = () => {
           50% { transform: translateY(-5px); }
           100% { transform: translateY(0); }
         }
-        /* Title Box Shining Effect */
-        .title-box {
-          position: relative;
+        /* Command Line Typing Effect */
+        .typing {
           display: inline-block;
-          padding: 0.5rem 1rem;
-          transition: all 0.3s ease;
+          white-space: nowrap;
           overflow: hidden;
+          border-right: 2px solid #424242;
         }
-        .title-box:hover::after {
-          opacity: 1;
-          animation: shine 1s forwards;
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
         }
-        .title-box::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 200%;
-          height: 100%;
-          background: linear-gradient(120deg, transparent, rgba(0, 0, 0, 0.2), transparent);
-          opacity: 0;
+        @keyframes blink {
+          from, to { border-color: transparent; }
+          50% { border-color: #424242; }
         }
-        @keyframes shine {
-          0% { left: -100%; }
-          100% { left: 100%; }
+        /* Hover Effect for Tables and Icons */
+        .hover-effect {
+          transition: transform 0.3s ease;
         }
-        /* Technical Skills Connecting Line */
-        @keyframes shineLine {
-          0% { background-position: 0% center; }
-          100% { background-position: 100% center; }
+        .hover-effect:hover {
+          animation: upDownHover 1s ease-in-out infinite;
         }
-        .tech-connector {
-          position: relative;
-          margin-top: 1rem;
-          height: 3px;
-          background: linear-gradient(90deg, transparent, #78909C, transparent);
-          background-size: 200% auto;
-          animation: shineLine 2s linear infinite;
+        @keyframes upDownHover {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+          100% { transform: translateY(0); }
         }
-        /* Command Line Typing Effect for Contact Section */
-        .command-line {\n          font-family: monospace;\n          font-size: 0.9rem;\n          color: #424242;\n          white-space: nowrap;\n          overflow: hidden;\n          border-right: 2px solid #424242;\n          width: 0;\n          animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;\n        }\n        @keyframes typing {\n          from { width: 0; }\n          to { width: 14rem; }\n        }\n        @keyframes blink {\n          from, to { border-color: transparent; }\n          50% { border-color: #424242; }\n        }\n      `}</style>
+      `}</style>
     </div>
   );
 };
