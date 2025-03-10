@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle linear forwards;
+  transform: translateY(-100%);
+}
+
+/* Utility Classes */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-left {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.timeline-right {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.timeline-left.visible,
+.timeline-right.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Components */
+.skill-tag {
+  @apply bg-gray-800 px-4 py-2 rounded-full text-center;
+}
+
+.company-card {
+  @apply bg-gray-900 p-6 rounded-lg;
+}
+
+.project-card {
+  @apply bg-gray-900 rounded-lg overflow-hidden;
+}
+
+.social-link {
+  @apply flex items-center gap-4 text-white hover:text-gray-300 transition-colors;
+}
+
+.form-input {
+  @apply w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all;
+}
