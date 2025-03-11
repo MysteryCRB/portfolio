@@ -106,7 +106,7 @@ const commands = [
   'git commit -m "Update portfolio"',
   'npm start',
   'docker run -it ubuntu bash',
-  'Almendo Gabriel TeteleptA'
+  'Almendo Gabriel Tetelepta'
 ];
 
 // 3D Icons to spin (desktop only)
