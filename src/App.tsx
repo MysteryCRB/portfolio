@@ -349,7 +349,7 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 reveal-on-scroll">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
-                Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection, and security monitoring. Eager to further develop technical skills, particularly in penetration testing.
+              Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection, and security monitoring. Gained hands-on experience through a practical internship, contributing to real-world security operations. Eager to further develop technical skills, particularly in penetration testing.
               </p>
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold">Technical Skills</h3>
