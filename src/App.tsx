@@ -39,9 +39,9 @@ const softSkills = [
 const projects = [
   {
     title: 'Integrated Malware Detection & Analysis System for SOC L1 Analysts',
-    description: 'Developed an automated SOAR platform for threat intelligence reporting and IOC detection.',
+    description: 'Developed an all-in-one platform for threat intelligence reporting, IOC detection, and Monitoring.',
     icon: 'https://cdn-icons-png.flaticon.com/512/6134/6134591.png',
-    year: 'On-Progress'
+    year: '2025'
   },
   {
     title: 'Personal Portfolio Website',
@@ -349,7 +349,10 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 reveal-on-scroll">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
-              Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection, and security monitoring. Gained hands-on experience through a practical internship, contributing to real-world security operations. Eager to further develop technical skills, particularly in penetration testing.
+              Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection,
+and security monitoring. Gained hands-on experience through a practical internship, contributing to real-world security operations. Would
+like to further develop in areas such as defense, penetration testing, and governance, risk & compliance (GRC), while also exploring
+applications of Machine Learning to strengthen security posture and improve vulnerability detection.
               </p>
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold">Technical Skills</h3>
@@ -383,7 +386,7 @@ const App: React.FC = () => {
                 </p>
                 <ul className="mt-6 space-y-3 text-[#424242]">
                   <li className="flex items-center gap-2">
-                    <span>•</span> GPA: 3.49
+                    <span>•</span> GPA: 3.56
                   </li>
                   <li className="flex items-center gap-2">
                     <span>•</span> Merit-based scholarship recipient
@@ -604,15 +607,6 @@ const App: React.FC = () => {
                   <span>almendo.071105@gmail.com</span>
                 </a>
                 {/* Phone number with WhatsApp link & icon */}
-                <a
-                  href="https://wa.me/6285281478917"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-link hover-effect"
-                >
-                  <Phone size={24} />
-                  <span>(+62) 852 8147 8917</span>
-                </a>
               </div>
             </div>
           </div>
