@@ -321,7 +321,7 @@ const App: React.FC = () => {
             Information Technology | Cyber Security Enthusiast
           </p>
           <div className="flex justify-center gap-4 hover:text-[#78909C] transition-colors duration-300">
-            <p>Grogol, West Jakarta, Indonesia</p>
+            <p>BSD, South Tangerang, Indonesia</p>
             <p>•</p>
             <p>President University</p>
           </div>
