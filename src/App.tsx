@@ -351,8 +351,7 @@ const App: React.FC = () => {
               <p className="text-lg leading-relaxed">
               Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection,
 and security monitoring. Gained hands-on experience through a practical internship, contributing to real-world security operations. Would
-like to further develop in areas such as defense, penetration testing, and governance, risk & compliance (GRC), while also exploring
-applications of Machine Learning to strengthen security posture and improve vulnerability detection.
+like to further develop in areas such as defense, penetration testing, and governance, risk & compliance (GRC).
               </p>
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold">Technical Skills</h3>
