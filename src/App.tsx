@@ -416,7 +416,7 @@ management.
           <div className="space-y-12">
             <div className="timeline-item reveal-on-scroll timeline-left">
               <div className="experience-card relative hover-effect">
-                <h3 className="text-2xl font-semibold mb-2">IT Security Intern</h3>
+                <h3 className="text-2xl font-semibold mb-2">Security Analyst L1</h3>
                 <p className="mb-4">
                 PT Aero Systems Indonesia - Asyst (Garuda Indonesia Group) • Nov 2025 - Present
                 </p>
