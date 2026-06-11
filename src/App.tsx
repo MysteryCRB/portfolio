@@ -321,7 +321,7 @@ const App: React.FC = () => {
             Information Technology | Cyber Security Enthusiast
           </p>
           <div className="flex justify-center gap-4 hover:text-[#78909C] transition-colors duration-300">
-            <p>BSD, South Tangerang, Indonesia</p>
+            <p>Tangerang, Indonesia</p>
             <p>•</p>
             <p>President University</p>
           </div>
@@ -349,9 +349,10 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 reveal-on-scroll">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
-              Dedicated Informatics student with a passion for Cyber Security and IT, demonstrating proficiency in threat analysis, endpoint protection,
-and security monitoring. Gained hands-on experience through a practical internship, contributing to real-world security operations. Would
-like to further develop in areas such as defense, penetration testing, and governance, risk & compliance (GRC).
+              Dedicated Informatics fresh graduate with a strong passion for Cyber Security and IT, demonstrating proficiency in threat analysis,
+endpoint protection, and security monitoring. Gained practical experience through enterprise security internships and active SOC
+operations. Looking to further advance professional capabilities in security engineering, penetration testing, and defensive infrastructure
+management.
               </p>
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold">Technical Skills</h3>
@@ -412,6 +413,48 @@ like to further develop in areas such as defense, penetration testing, and gover
           <h2 className="text-4xl font-bold mb-12 reveal-on-scroll border-b-2 border-[#424242] pb-2">
             Work Experience
           </h2>
+          <div className="space-y-12">
+            <div className="timeline-item reveal-on-scroll timeline-left">
+              <div className="experience-card relative hover-effect">
+                <h3 className="text-2xl font-semibold mb-2">IT Security Intern</h3>
+                <p className="mb-4">
+                PT Aero Systems Indonesia - Asyst (Garuda Indonesia Group) • Nov 2025 - Present
+                </p>
+                <ul className="list-none space-y-3">
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-4 mt-1">
+                      <div className="h-2 w-2 bg-[#78909C] rounded-full"></div>
+                    </div>
+                    <p>
+                    Perform continuous 24/7 security monitoring and event triage utilizing FortiSIEM to detect, analyze, and mitigate potential security
+incidents across enterprise environments.
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-4 mt-1">
+                      <div className="h-2 w-2 bg-[#78909C] rounded-full"></div>
+                    </div>
+                    <p>Manage end-to-end incident ticketing lifecycles using Eleasoft, ensuring accurate classification, escalation, and timely remediation of
+security alerts.</p>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-4 mt-1">
+                      <div className="h-2 w-2 bg-[#78909C] rounded-full"></div>
+                    </div>
+                    <p>Formulate and deliver comprehensive shift-based and daily security incident reports tailored for high-profile aviation clients, including
+Garuda Indonesia (GIA), Citilink, and GMF AeroAsia.</p>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="min-w-4 mt-1">
+                      <div className="h-2 w-2 bg-[#78909C] rounded-full"></div>
+                    </div>
+                    <p>Spearhead the consolidation of historical daily incident data during night shifts, generating master executive summaries to ensure
+continuous visibility for external stakeholders.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div className="space-y-12">
             <div className="timeline-item reveal-on-scroll timeline-left">
               <div className="experience-card relative hover-effect">
